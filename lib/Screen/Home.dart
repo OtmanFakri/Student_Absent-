@@ -5,6 +5,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../Models/ModelsScreen.dart';
 import 'package:get/get.dart';
 
+
+
 import 'Abcens.dart';
 import 'Profile.dart';
 
@@ -25,7 +27,15 @@ class _HomeScreenState extends State<HomeScreen> {
         Title: "Account",
         icon: Icons.account_circle_outlined,
         link: ScreenProfil()),
-    new modelsScreen(Title: "absence", icon: Icons.check, link: tet()),
+    new modelsScreen(Title: "absence", icon: Icons.check, link: AbcensScreen()),
+    new modelsScreen(
+        Title: "Matter",
+        icon: Icons.menu_book,
+        link: ScreenProfil()),
+    new modelsScreen(
+        Title: "Students",
+        icon: Icons.group,
+        link: ScreenProfil()),
   ];
 
   @override

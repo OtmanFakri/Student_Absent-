@@ -114,7 +114,7 @@ class _ScreenProfilState extends State<ScreenProfil> {
           icon: const Icon(Icons.check),
           duration: const Duration(seconds: 3),
         ),
-      );;
+      );
     }
 
 

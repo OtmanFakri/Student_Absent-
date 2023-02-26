@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -160,8 +160,26 @@ class _LoginScreenState extends State<LoginScreen> {
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           print('No user found for that email.');
+          return Get.showSnackbar(
+            GetSnackBar(
+              title: "Error",
+              message: 'No user found for that email',
+              backgroundColor: Colors.red.shade300,
+              icon: const Icon(Icons.error_outline),
+              duration: const Duration(seconds: 3),
+            ),
+          );
         } else if (e.code == 'wrong-password') {
           print('Wrong password provided for that user.');
+          return Get.showSnackbar(
+            GetSnackBar(
+              title: "Error",
+              message: 'Wrong password provided for that user.',
+              backgroundColor: Colors.red.shade300,
+              icon: const Icon(Icons.error_outline),
+              duration: const Duration(seconds: 3),
+            ),
+          );
         }
         return null;
       }
