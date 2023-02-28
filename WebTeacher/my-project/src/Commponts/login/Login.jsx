@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useFormik } from 'formik';
 
+import { useToast } from '@chakra-ui/react'
+
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import Success from "./success.jsx";
+import Error from "./error.jsx";
 
 function Login(props) {
+
+
+    const toast = useToast()
+
+
 
     const validate = values => {
         const errors = {};
@@ -19,22 +30,56 @@ function Login(props) {
         return errors;
       };
 
+
+
+    function sucessmesg()
+    {
+
+        toast({
+            title: 'Account created.',
+            description: "We've created your account for you.",
+            status: 'success',
+            duration: 9000,
+            variant:"top-accent",
+            isClosable: true,
+        })
+    }
+
+    function errormesg(mesages)
+    {
+
+        toast({
+            title: 'Sorry but .',
+            description: mesages,
+            status: "error",
+            duration: 9000,
+            variant:"top-accent",
+            isClosable: true,
+        })
+    }
+    async function singin(values)  {
+        await  firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+            .then((userCredential) => {
+                var user = userCredential.user;
+                sucessmesg();
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                errormesg(error.message)
+            });
+    };
+
     const formik = useFormik({
         initialValues: {
           email: '',
           password: '',
         },
         validate:validate,
-        onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
-          console.log("values.email")
-        },
+        onSubmit: singin,
         
         
       });
-
-
-
 
     return (
      <>
@@ -45,7 +90,7 @@ function Login(props) {
 
     <div className="flex h-full w-full justify-center items-center">
   <form onSubmit={formik.handleSubmit}>
-    <div className="mb-3 w-[24rem]">
+    <div className="mb-3 ">
       <label className="block text-gray-700 font-bold mb-2" htmlFor="username">
         Username
       </label>
@@ -71,8 +116,6 @@ function Login(props) {
 
   </form>
 </div>
-
-
   </div>
 </div>
 
