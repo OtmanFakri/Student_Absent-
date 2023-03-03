@@ -4,12 +4,12 @@ import Login from "./Commponts/login/Login"
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import firebase from "firebase/compat/app";
-
 import {
   Routes,
   Route,
   Outlet,
 } from "react-router-dom";
+import Example from "./Pages/Home.jsx";
 
 function App() {
   const firebaseConfig = {
@@ -20,13 +20,15 @@ function App() {
     messagingSenderId: "136955785682",
     appId: "1:136955785682:web:c80f822c58f71e82c8580b"
   };
-
   firebase.initializeApp(firebaseConfig);
-
   return (
   
     <>
-      <Routes>
+      <Routes >
+        <Route
+            path={"/"} element={<Example />}
+        >
+        </Route>
         <Route
             path="/Login" element={<> <Login /> <Outlet /></>}
         ></Route>

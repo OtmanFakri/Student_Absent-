@@ -5,8 +5,7 @@ import { useToast } from '@chakra-ui/react'
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import Success from "./success.jsx";
-import Error from "./error.jsx";
+
 
 function Login(props) {
 
