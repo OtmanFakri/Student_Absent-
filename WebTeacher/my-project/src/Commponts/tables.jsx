@@ -9,6 +9,34 @@ const people = [
         image:
             'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
     },
+    {
+        name: 'Python',
+        title: '2022-16-09',
+        department: 'Semster 1',
+        email: 'lindsay.walton@example.com',
+        role: '10',
+        image:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
+    },
+    {
+        name: 'Oracle',
+        title: '2022-16-09',
+        department: 'Semster 1',
+        email: 'lindsay.walton@example.com',
+        role: '10/35',
+        image:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
+    },
+    {
+        name: 'Mysql',
+        title: '2022-16-09',
+        department: 'Semster 1',
+        email: 'lindsay.walton@example.com',
+        role: '10',
+        image:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
+    },
+
     // More people...
 ]
 
@@ -56,7 +84,7 @@ export default function Tables() {
                                         </td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                             <div className="text-gray-900">{person.title}</div>
-
+                                            <p>10-12</p>
                                         </td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">

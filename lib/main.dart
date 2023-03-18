@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           textTheme: TextTheme(
-            bodyLarge: TextStyle(color: Colors.white), // set the text color here
+            bodyLarge: TextStyle(color: Colors.white ,), // set the text color here
             bodyMedium: TextStyle(color: Colors.white), // set the text color here
             displayLarge: TextStyle(color: Colors.white), // set the text color here
             displayMedium: TextStyle(color: Colors.white), // set the text color here

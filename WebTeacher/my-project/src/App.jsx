@@ -1,43 +1,58 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Login from "./Commponts/login/Login"
 
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {initializeApp} from "firebase/app";
+import {getAuth} from "firebase/auth";
 import firebase from "firebase/compat/app";
 import {
-  Routes,
-  Route,
-  Outlet,
+    Routes,
+    Route,
+    Outlet, NavLink, Navigate,
 } from "react-router-dom";
 import Example from "./Pages/Home.jsx";
+import app from "./utilis/FireBases_conf.jsx";
+
+
+
+async function checkAuth() {
+    const user = await app.auth().currentUser;
+    if (user != null) {
+        return false;
+    } else {
+        return false;
+    }
+    return false
+}
 
 function App() {
-  const firebaseConfig = {
-    apiKey: "AIzaSyDXWF3B7ct77Ac4tHb30fUFAKoVXxPA5Gk",
-    authDomain: "student-e20e9.firebaseapp.com",
-    projectId: "student-e20e9",
-    storageBucket: "student-e20e9.appspot.com",
-    messagingSenderId: "136955785682",
-    appId: "1:136955785682:web:c80f822c58f71e82c8580b"
-  };
-  firebase.initializeApp(firebaseConfig);
-  return (
-  
-    <>
-      <Routes >
-        <Route
-            path={"/"} element={<Example />}
-        >
-        </Route>
-        <Route
-            path="/Login" element={<> <Login /> <Outlet /></>}
-        ></Route>
-      </Routes>
 
 
-    </>
+    return (
 
-  )
+
+        <>
+            <Routes>
+                <Route path="/" element={checkAuth ? <Example /> : <Navigate to="/login" />} />
+                <Route path="/login" element={!checkAuth ? <Example /> : <Navigate to="/" />} />
+            </Routes>
+            {/*
+            <Routes>
+                {checkAuth ?
+                    (<Route
+
+                         path="/" element={<> <Example/>  </>}
+                    />
+                    ) :
+                    (<Route
+                         path={"/login"} element={<> <Login/> <Outlet/></>}
+                    />)}
+
+            </Routes>
+*/}
+
+        </>
+
+    )
 }
 
 export default App
